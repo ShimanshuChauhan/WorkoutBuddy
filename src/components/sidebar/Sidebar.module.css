@@ -1,0 +1,102 @@
+/* Base sidebar (desktop/laptop) */
+.sidebar {
+  width: 15%;
+  min-height: 100vh;
+  height: 100%;
+  background-color: green;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  cursor: pointer;
+  color: white;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: white;
+  /* Make it visible on green background */
+}
+
+/* Tablet: collapse text, only icons */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .label {
+    display: none;
+    /* hide label only on tablets */
+  }
+
+  .closeBtn {
+    display: none;
+    /* do not show close button on tablets */
+  }
+}
+
+/* Mobile: hide sidebar by default, use drawer */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100vh;
+    z-index: 999;
+  }
+
+  .sidebarOpen {
+    left: 0;
+  }
+
+  .drawerBtn {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: #4a6fff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 1000;
+    cursor: pointer;
+  }
+
+  .closeBtn {
+    display: block;
+    /* only mobile, handled by media query */
+    margin: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+/* Hide drawer button and close button on larger screens */
+@media (min-width: 769px) {
+
+  .drawerBtn,
+  .closeBtn {
+    display: none;
+  }
+}
