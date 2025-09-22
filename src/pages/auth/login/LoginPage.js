@@ -7,6 +7,8 @@ export default function Login() {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   // handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,14 +16,49 @@ export default function Login() {
       ...prev,
       [name]: value,
     }));
+
+    validateField(name, value);
   };
 
-  // handle form submit
+  // validate a single field
+  const validateField = (name, value) => {
+    let message = "";
+
+    if (name === "email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!value.trim()) message = "Required";
+      else if (!emailRegex.test(value)) message = "Invalid";
+    }
+
+    if (name === "password") {
+      if (!value.trim()) message = "Required";
+      else if (value.length < 6) message = "Too short";
+    }
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: message,
+    }));
+  };
+
+  // check if form is valid
+  const isFormValid = () => {
+    return (
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
+      formData.password.length >= 6 &&
+      Object.values(errors).every((err) => !err)
+    );
+  };
+
+  // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    Object.keys(formData).forEach((key) => validateField(key, formData[key]));
 
-    // TODO: replace with your login logic (API call, validation, etc.)
+    if (!isFormValid()) return;
+
+    console.log("Form submitted:", formData);
+    // TODO: replace with your login logic (API call, etc.)
   };
 
   return (
@@ -32,7 +69,9 @@ export default function Login() {
         placeholder="Email"
         value={formData.email}
         onChange={handleChange}
-        className={styles.input}
+        className={`${styles.input} ${errors.email ? styles.inputError : formData.email ? styles.inputSuccess : ""
+          }`}
+
         required
       />
       <input
@@ -41,10 +80,15 @@ export default function Login() {
         placeholder="Password"
         value={formData.password}
         onChange={handleChange}
-        className={styles.input}
+        className={`${styles.input} ${errors.password ? styles.inputError : formData.password ? styles.inputSuccess : ""
+          }`}
         required
       />
-      <button type="submit" className={styles.button}>
+      <button
+        type="submit"
+        className={`${styles.button} ${!isFormValid() ? styles.buttonDisabled : ""}`}
+        disabled={!isFormValid()}
+      >
         Login
       </button>
     </form>

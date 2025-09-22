@@ -1,0 +1,10 @@
+.mainLayout {
+  flex: 1;
+  padding: 1rem;
+  overflow: scroll;
+  /* backgroundColor: #f8f8f8; */
+}
+
+.mainLayout::-webkit-scrollbar {
+  display: none;
+}

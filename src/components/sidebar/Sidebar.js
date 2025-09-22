@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Sidebar.module.css";
+import { CiLogout } from "react-icons/ci";
 
 export function Sidebar({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +25,14 @@ export function Sidebar({ children }) {
           ✕
         </button>
 
-        <ul className={styles.sidebarList}>{children}</ul>
-      </aside>
+        <ul className={styles.sidebarList}>
+          {children}
+        </ul>
+        <div className={styles.logoutBtn}>
+          <span className={styles.logoutIcon}><CiLogout strokeWidth={2} /></span>
+          <span className={styles.logoutText}>Logout</span>
+        </div>
+      </aside >
     </>
   );
 }

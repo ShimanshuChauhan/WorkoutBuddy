@@ -1,21 +1,20 @@
-/* styles.module.css */
+/* ==================== Main Layout ==================== */
 .container {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  /* make children equal height */
   width: 100vw;
   min-height: 100vh;
   background: linear-gradient(to right, white 70%, #4A6FFF 30%);
 }
 
+/* ==================== Form Section ==================== */
 .formContainer {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: blue; */
   width: 100%;
   gap: 1rem;
 }
@@ -26,15 +25,18 @@
   line-height: 1.2;
 }
 
-
 .text {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: rgb(166, 166, 166);
   line-height: 1.5;
 }
 
+.formWrapper {
+  width: 50%;
+}
+
+/* ==================== Button Styles ==================== */
 .buttonContainer {
-  /* background-color: #4A6FFF; */
   margin-bottom: 1rem;
 }
 
@@ -45,10 +47,33 @@
   border-radius: 1rem;
 }
 
-.formWrapper {
-  width: 50%;
+.switchText {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: black;
 }
 
+.switchBtn {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+}
+
+.switchBtn:hover {
+  color: #333;
+}
+
+.switchBtn:active {
+  transform: scale(0.98);
+}
+
+/* ==================== Image Section ==================== */
 .imageContainer {
   flex: 1;
   display: flex;
@@ -74,38 +99,7 @@
   object-position: center;
 }
 
-.switchText {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.95rem;
-  color: black;
-  /* main text color */
-}
-
-.switchBtn {
-  background: none;
-  border: none;
-  color: black;
-  /* clickable text also black */
-  font-size: 0.95rem;
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 0;
-  margin: 0;
-}
-
-.switchBtn:hover {
-  color: #333;
-  /* slightly darker on hover */
-}
-
-.switchBtn:active {
-  transform: scale(0.98);
-  /* small press effect */
-}
-
-
-/* Mobile/Tablet */
+/* ==================== Mobile/Tablet ==================== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column-reverse;
@@ -126,48 +120,36 @@
 
 @media (min-width: 769px) and (max-width: 1025px) {
   .formWrapper {
-    /* background-color: aqua; */
     width: 70%;
   }
 }
 
-
-/* Extra small / mobile (default) */
+/* ==================== Image Wrapper Responsive ==================== */
 .imageWrapper {
   width: 80%;
-  /* small phones */
   aspect-ratio: 1;
-  /* background-color: black; */
 }
 
-/* Small (sm) ~ 640px */
 @media (min-width: 640px) {
   .imageWrapper {
     width: 80%;
-    /* background-color: darkgoldenrod; */
   }
 }
 
-/* Medium (md) ~ 768px */
 @media (min-width: 768px) {
   .imageWrapper {
     width: 90%;
-    /* background-color: teal; */
   }
 }
 
-/* Large (lg) ~ 1024px */
 @media (min-width: 1024px) {
   .imageWrapper {
     width: 80%;
-    /* background-color: chocolate; */
   }
 }
 
-/* Extra Large (xl) ~ 1280px */
 @media (min-width: 1280px) {
   .imageWrapper {
     width: 75%;
-    /* background-color: olive; */
   }
 }
