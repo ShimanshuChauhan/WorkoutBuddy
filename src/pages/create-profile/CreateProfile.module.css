@@ -1,0 +1,114 @@
+/* ==================== Form Container ==================== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ==================== Input Field ==================== */
+.input {
+  color: #1f2937;
+  height: clamp(2.5rem, 2.5vw, 3rem);
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0 1rem;
+  font-size: clamp(0.95rem, 1.8vh, 1.1rem);
+  font-weight: 400;
+  background-color: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.input:hover:not(:focus) {
+  border-color: #dbd9d1;
+}
+
+/* ==================== Button ==================== */
+.button {
+  height: clamp(3rem, 3vw, 3.5rem);
+  border-radius: 0.75rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  font-size: clamp(1rem, 1vw, 1.2rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover:not(:disabled) {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px -1px rgba(0, 0, 0, 0.15);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==================== Form Variations ==================== */
+.formCompact {
+  gap: 1rem;
+}
+
+.inputError {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.inputSuccess {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.buttonSecondary {
+  background-color: #6b7280;
+}
+
+.buttonSecondary:hover:not(:disabled) {
+  background-color: #4b5563;
+}
+
+.buttonSuccess {
+  background-color: #10b981;
+}
+
+.buttonSuccess:hover:not(:disabled) {
+  background-color: #059669;
+}
+
+.buttonDanger {
+  background-color: #ef4444;
+}
+
+.buttonDanger:hover:not(:disabled) {
+  background-color: #dc2626;
+}

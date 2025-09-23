@@ -1,0 +1,155 @@
+/* ==================== Main Layout ==================== */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to right, white 70%, #4A6FFF 30%);
+}
+
+/* ==================== Form Section ==================== */
+.formContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.header {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgb(166, 166, 166);
+  line-height: 1.5;
+}
+
+.formWrapper {
+  width: 50%;
+}
+
+/* ==================== Button Styles ==================== */
+.buttonContainer {
+  margin-bottom: 1rem;
+}
+
+.buttons {
+  border: none;
+  padding: 1rem;
+  font-size: clamp(1rem, 0.9rem, 1.3rem);
+  border-radius: 1rem;
+}
+
+.switchText {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: black;
+}
+
+.switchBtn {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+}
+
+.switchBtn:hover {
+  color: #333;
+}
+
+.switchBtn:active {
+  transform: scale(0.98);
+}
+
+/* ==================== Image Section ==================== */
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.imageWrapper {
+  width: 70%;
+  aspect-ratio: 1;
+  background-color: transparent;
+  border: none;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ==================== Mobile/Tablet ==================== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+    background: linear-gradient(to bottom, #4A6FFF 30%, white 30%);
+    margin-bottom: 1rem;
+  }
+
+  .formContainer,
+  .imageContainer {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .formWrapper {
+    width: 85%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1025px) {
+  .formWrapper {
+    width: 70%;
+  }
+}
+
+/* ==================== Image Wrapper Responsive ==================== */
+.imageWrapper {
+  width: 80%;
+  aspect-ratio: 1;
+}
+
+@media (min-width: 640px) {
+  .imageWrapper {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .imageWrapper {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .imageWrapper {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .imageWrapper {
+    width: 75%;
+  }
+}
